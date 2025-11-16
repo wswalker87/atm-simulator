@@ -33,20 +33,26 @@ class ATM:
         if user_account in customers:
             account_pin = 7302
             if account_pin == user_pin:
-                return input(f"Authenticated. Please choose an option:")
+                user_selects = ATM.display_menu()
+                return user_selects
             else:
                 return "Your PIN is wrong, try again."
         else:
             return "No account found. Please check the account number or visit the bank to open an account."
         
+    def display_menu():
+        print("\n**Welcome to the ATM**")
+        print("1. Check Balance")
+        print("2. Deposit Money")
+        print("3. Withdraw Money")
+        print("4. Exit")
+        user_choice = input("Please choose an option from the menu (1-4): ")
+        return user_choice
+
 login_checker = ATM(True, 7302)
 
 user_login = login_checker.login(True, 7302)
 # user_login = login_checker.login(False, 7303)
-
-    # def display_menu():
-    #     pass
-
 
 # class Users:
     
